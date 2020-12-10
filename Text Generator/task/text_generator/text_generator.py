@@ -7,7 +7,6 @@ class TextGenerator:
     def __init__(self, file_name):
         file = open(file_name, "r", encoding="utf-8")
         self.tokens = file.read().split()
-        self.unique_tokens = set(self.tokens)
         self.pairs = defaultdict(Counter)
         for i in range(len(self.tokens) - 2):
             self.pairs[' '.join(self.tokens[i:i + 2])].update((self.tokens[i + 2],))
